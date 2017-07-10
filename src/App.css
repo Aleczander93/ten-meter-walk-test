@@ -1,8 +1,17 @@
 
 .testBody {
   text-align: center;
-  height: 75%;
-  padding: 5%;
+  height: 50%;
+  padding: 1%;
+}
+
+.title {
+  text-align: center;
+}
+
+h3 {
+  margin: 50px 0 0 0;
+  color: #509baa;
 }
 
 .stopwatch-timer {
@@ -12,7 +21,6 @@
   text-align: center;
   margin: 0;
   color:darkgrey;
-  border: solid #cecfd0;
   border-width: 1px 0;
   background-color: white;
 }
@@ -31,10 +39,14 @@
 }
 
 
-/*.stopwatch-lap strong {
+.stopwatch-lap strong {
   float: left;
   color: #7f8083;
   font-weight: 100;
 }
 
-.stopwatch-lap strong::before { content: 'Lap ' }*/
+.stopwatch-lap strong::before { content: 'Trial ' }
+
+.card {
+  margin: 50px 0 0 0;
+}
