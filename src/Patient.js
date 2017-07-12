@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class Patient extends React.Component {
 
@@ -43,6 +44,8 @@ export default class Patient extends React.Component {
           <br />
 
           <DatePicker hintText="Date" fullWidth="true" floatingLabelText="Date"/>
+
+          <RaisedButton label='Submit' fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' />
         </div>
       </div>
 

@@ -1,9 +1,12 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 export default class Results extends React.Component {
 
+  getPatients() {
+    return[]
+  }
 
   render() {
     return (
@@ -12,14 +15,28 @@ export default class Results extends React.Component {
           <Card>
             <CardHeader
               title="Name"
-              subtitle="Assistive Device Used"
+              subtitle="Date"
               avatar="opie_logo.png"
             />
-            <CardText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-              Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-              Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            <CardText className="cardtext">
+                <strong>Self-Selected Velocity</strong>
+                <br />
+                Trial 1: sec.<br />
+                Trial 2: sec.<br />
+                Trial 3: sec.<br />
+                Average Time: sec.<br />
+                <br />
+                <strong>Fast Velocity</strong>
+                <br />
+                Trial 1: sec.<br />
+                Trial 2: sec.<br />
+                Trial 3: sec.<br />
+                Average Time: sec.<br />
+                <br />
+                <strong>Actual Velocity</strong>
+                <br />
+                Average Self-Selected Velocity: m/s<br />
+                Average Fast-Velocity: m/s<br />
             </CardText>
             <CardActions>
               <FlatButton label="Copy" fullWidth={true} />

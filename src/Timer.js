@@ -58,9 +58,9 @@ export default class Timer extends React.Component {
       // }
 
     handleLapClick() {
-    this.setState({
-      laps: this.state.laps.concat([this.state.secondsElapsed])
-    })
+      this.setState({
+        laps: this.state.laps.concat([this.state.secondsElapsed])
+      })
   }
 
   render() {
@@ -76,11 +76,12 @@ export default class Timer extends React.Component {
             primary={true}
             keyboardFocused={true}
             onTouchTap={this.handleClose}
+            onClick={this.handleResetClick.bind(this)}
           />,
         ];
 
     return (
-<div className="Container">
+<div className="container">
 
   <div className="title">
     <h3>10 Meter Walk Test</h3>
@@ -98,15 +99,17 @@ export default class Timer extends React.Component {
       : <RaisedButton className="stop-btn" secondary={true} label="Stop Test" fullWidth={true} onClick={this.handleStopClick.bind(this)}/>
     )}
 
+
     {/* {(this.state.secondsElapsed !== 0 &&
       this.incrementer !== this.state.lastClearedIncrementer
       ? <RaisedButton onClick={this.handleLabClick.bind(this)}>lap</RaisedButton>
       : null
     )} */}
 
+
     {(this.state.secondsElapsed !== 0 &&
       this.incrementer === this.state.lastClearedIncrementer
-      ? <RaisedButton label='reset' className='reset-btn' fullWidth={true} onTouchTap={this.handleOpen}  onClick={this.handleResetClick.bind(this)}/>
+      ? <RaisedButton label='reset' className='reset-btn' fullWidth={true} onTouchTap={this.handleOpen} />
       : null
      )}
 
@@ -127,8 +130,8 @@ export default class Timer extends React.Component {
 
       <ul className="stopwatch-laps">
         { this.state.laps.map((lap, i) =>
-            <li className="stopwatch-lap"><strong>{i + 1}</strong>/ {formattedSeconds(lap)}</li>)
-        }
+            <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
+        )}
       </ul>
 
  </div>
