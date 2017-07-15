@@ -1,12 +1,15 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+// import Patient from './Patientwref'
 
 export default class Results extends React.Component {
 
-  getPatients() {
-    return[]
-  }
+  // getPatients() {
+  //   return[]
+  // }
+
+
 
   render() {
     return (

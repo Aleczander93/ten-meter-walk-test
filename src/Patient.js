@@ -7,8 +7,12 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 export default class Patient extends React.Component {
 
-  state = {
-     value: 1,
+   handleSubmit(event) {
+    event.preventDefault();
+   }
+
+   state = {
+     value: '',
    };
 
    handleChange = (event, index, value) => this.setState({value});
@@ -17,39 +21,41 @@ export default class Patient extends React.Component {
     return (
       <div className="container">
 
-      <div className="title">
-        <h3>Patient Info</h3>
-      </div>
-
-      <div>
-        <TextField
-          hintText="John Doe"
-          floatingLabelText="Full Name"
-          fullWidth="true"
-        /><br />
-
-        <SelectField
-            floatingLabelText="Assistive Device"
-            value={this.state.value}
-            onChange={this.handleChange}
-            fullWidth="true"
-          >
-            <MenuItem value={1} primaryText="None" />
-            <MenuItem value={2} primaryText="Cane" />
-            <MenuItem value={3} primaryText="Forearm Crutches" />
-            <MenuItem value={4} primaryText="Gait Trainer" />
-            <MenuItem value={5} primaryText="Orthoses" />
-            <MenuItem value={5} primaryText="Walker" />
-          </SelectField>
-          <br />
-
-          <DatePicker hintText="Date" fullWidth="true" floatingLabelText="Date"/>
-
-          <RaisedButton label='Submit' fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' />
+        <div className="title">
+          <h3>Patient Info</h3>
         </div>
-      </div>
 
-    )
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <TextField
+              hintText="John Doe"
+              floatingLabelText="Full Name"
+              fullWidth={true}
+              type="text"
+              name='fullName'
+            /><br />
+
+            <SelectField
+                floatingLabelText="Assistive Device"
+                value={this.state.value}
+                fullWidth={true}
+                onChange={this.handleChange}
+              >
+                <MenuItem value="None" primaryText="None" />
+                <MenuItem value="Cane" primaryText="Cane" />
+                <MenuItem value="Forearm Crutches" primaryText="Forearm Crutches" />
+                <MenuItem value="Gait Trainer" primaryText="Gait Trainer" />
+                <MenuItem value="Orthoses" primaryText="Orthoses" />
+                <MenuItem value="Walker" primaryText="Walker" />
+              </SelectField>
+              <br />
+
+              <DatePicker hintText="Date" fullWidth={true} floatingLabelText="Date"/>
+
+              <RaisedButton label='Submit' type="submit" fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' />
+            </div>
+          </form>
+        </div>
+      )
+    }
   }
-
-}
