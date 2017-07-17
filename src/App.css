@@ -14,13 +14,28 @@ h3 {
   color: #509baa;
 }
 
+.submitButton {
+  margin-left: 9%;
+}
+
+.menuButton{
+  height: 38px;
+  width:48px;
+  border: black;
+  
+}
+
+.reset-btn {
+  margin-right: 9%;
+}
+
 .stopwatch-timer {
-  font-size: 76px;
-  font-weight: 100;
-  line-height: 160px;
+  font-size: 28px;
+  font-weight: 300;
+  /*line-height: 160px;*/
   text-align: center;
   margin: 0;
-  color:darkgrey;
+  color:black;
   border-width: 1px 0;
   background-color: white;
 }
@@ -46,10 +61,10 @@ h3 {
 
 .stopwatch-lap strong::before { content: 'Trial ' }
 
-.card {
-  margin: 50px 0 0 0;
-}
-
 .cardtext{
   padding: 16px 32px !important;
+}
+
+.card{
+   margin:10px 10px 10px 10px;
 }

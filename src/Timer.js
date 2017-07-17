@@ -83,9 +83,9 @@ export default class Timer extends React.Component {
     return (
 <div className="container">
 
-  <div className="title">
+  {/* <div className="title">
     <h3>10 Meter Walk Test</h3>
-  </div>
+  </div> */}
 
       <h1 className="stopwatch-timer">
        {formattedSeconds(this.state.secondsElapsed)}

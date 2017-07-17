@@ -8,10 +8,10 @@ import IconButton from 'material-ui/IconButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import Patient from './Patient'
 // import Form from './reduxformpractice'
-import Timer from './Timer'
+import Timer from './TimerTable'
 import Results from './Results'
 // import Form from './reduxformpractice'
-
+import Snackbar from 'material-ui/Snackbar';
 import {
   Step,
   Stepper,
@@ -29,22 +29,38 @@ class App extends React.Component {
       this.state = {
         open: false,
         stepIndex: 0,
+        openSnackBar: false
       };
     }
 
     handleNext = () => {
-  const {stepIndex} = this.state;
-  if (stepIndex < 2) {
-    this.setState({stepIndex: stepIndex + 1});
-  }
-};
+      const {stepIndex} = this.state;
+      if (stepIndex < 2) {
+        this.setState({stepIndex: stepIndex + 1});
+      } if (stepIndex === 2) {
+        this.setState({openSnackBar: true});
+      }
+    };
 
-handlePrev = () => {
-  const {stepIndex} = this.state;
-  if (stepIndex > 0) {
-    this.setState({stepIndex: stepIndex - 1});
-  }
-};
+    handlePrev = () => {
+      const {stepIndex} = this.state;
+      if (stepIndex > 0) {
+        this.setState({stepIndex: stepIndex - 1});
+      }
+    };
+
+    // handleTouchTap = () => {
+    //   this.setState({
+    //     snackBarOpen: true,
+    //   });
+    // };
+
+    handleRequestClose = () => {
+      this.setState({
+        openSnackBar: false,
+
+      });
+    };
 
     handleToggle = () => this.setState({open: !this.state.open});
 
@@ -62,15 +78,7 @@ handlePrev = () => {
     const {stepIndex} = this.state;
 
     return (
-      <div style={{margin: '12px 0'}}>
-        <RaisedButton
-          label={stepIndex === 2 ? 'Finish' : 'Next'}
-          disableTouchRipple={true}
-          disableFocusRipple={true}
-          primary={true}
-          onTouchTap={this.handleNext}
-          style={{marginRight: 12}}
-        />
+      <div style={{margin: '10px 0', textAlign:'center'}}>
         {step > 0 && (
           <FlatButton
             label="Back"
@@ -78,8 +86,24 @@ handlePrev = () => {
             disableTouchRipple={true}
             disableFocusRipple={true}
             onTouchTap={this.handlePrev}
+            style={{minWidth: '25%'}}
           />
-        )}
+          )}
+          <RaisedButton
+            label={stepIndex === 2 ? 'Copy' : 'Next'}
+            disableTouchRipple={true}
+            disableFocusRipple={true}
+            backgroundColor="#00BBF9"
+            labelColor="#fff"
+            onTouchTap={this.handleNext}
+            style={{minWidth: '25%'}}
+          />
+          <Snackbar
+            open={this.state.openSnackBar}
+            message="Copied to Patient Records"
+            autoHideDuration={4000}
+            onRequestClose={this.handleRequestClose}
+          />
       </div>
     );
   }
@@ -92,13 +116,13 @@ handlePrev = () => {
       <MuiThemeProvider>
         <div className="Container">
           <div>
-            <AppBar
-              title={<img src='OPIElogo.png' alt='OPIE LOGO' width="157px" height="70px"/>}
-              iconElementRight={<IconButton><NavigationMenu /></IconButton>}
-              onRightIconButtonTouchTap={this.handleToggle}
-              showMenuIconButton={false}
-              style={{backgroundColor: "#f8f8f8", padding: "1% 7%"}}
-            />
+              <AppBar
+                title={<img src='OPIElogo.png' alt='OPIE LOGO' width="157px" height="70px"/>}
+                iconElementRight={<IconButton iconStyle={{fill:"#777777", marginTop:'6px', borderRadius:'5px', padding:'2px', border:'lightgrey 1px solid', width:'46px', height:"40px"}} style={{padding:"0px", width:'34px', height:"34px"}}><NavigationMenu/></IconButton>}
+                onRightIconButtonTouchTap={this.handleToggle}
+                showMenuIconButton={false}
+                style={{backgroundColor: "#f8f8f8", padding: "10px 55px 10px 15px"}}
+              />
             <Drawer
               docked={false}
               width={200}
@@ -112,42 +136,43 @@ handlePrev = () => {
             </Drawer>
           </div>
 
-
-
       <div className="Container">
-        <Stepper
-          activeStep={stepIndex}
-          linear={false}
-          orientation="vertical"
-        >
-          <Step>
-            <StepButton onTouchTap={() => this.setState({stepIndex: 0})}>
-              Patient Info
-            </StepButton>
-            <StepContent>
-              <Patient />
-              {this.renderStepActions(0)}
-            </StepContent>
-          </Step>
-          <Step>
-            <StepButton onTouchTap={() => this.setState({stepIndex: 1})}>
-              Begin Test
-            </StepButton>
-            <StepContent>
-              <Timer />
-              {this.renderStepActions(1)}
-            </StepContent>
-          </Step>
-          <Step>
-            <StepButton onTouchTap={() => this.setState({stepIndex: 2})}>
-              Results
-            </StepButton>
-            <StepContent>
-              <Results />
-              {this.renderStepActions(2)}
-            </StepContent>
-          </Step>
-        </Stepper>
+        <div>
+          <Stepper
+            activeStep={stepIndex}
+            linear={false}
+            orientation="vertical"
+          >
+            <Step>
+              <StepButton onTouchTap={() => this.setState({stepIndex: 0})}>
+                Patient Info
+              </StepButton>
+              <StepContent>
+                <Patient />
+                {this.renderStepActions(0)}
+              </StepContent>
+            </Step>
+            <Step>
+              <StepButton onTouchTap={() => this.setState({stepIndex: 1})}>
+                Begin Test
+              </StepButton>
+              <StepContent>
+                <Timer />
+                {this.renderStepActions(1)}
+              </StepContent>
+            </Step>
+            <Step>
+              <StepButton onTouchTap={() => this.setState({stepIndex: 2})}>
+                Results
+              </StepButton>
+              <StepContent style={{marginLeft:"0px", paddingLeft:"16px"}}>
+                <Results />
+                {this.renderStepActions(2)}
+              </StepContent>
+            </Step>
+          </Stepper>
+
+        </div>
       </div>
 
 

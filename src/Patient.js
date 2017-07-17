@@ -3,9 +3,15 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
+
+
 
 export default class Patient extends React.Component {
+
+  // constructor(props) {
+  //   super(props);
+  //     this.renderStepActions = this.renderStepActions.bind(this);
+  //   }
 
    handleSubmit(event) {
     event.preventDefault();
@@ -21,9 +27,9 @@ export default class Patient extends React.Component {
     return (
       <div className="container">
 
-        <div className="title">
+        {/* <div className="title">
           <h3>Patient Info</h3>
-        </div>
+        </div> */}
 
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -52,7 +58,7 @@ export default class Patient extends React.Component {
 
               <DatePicker hintText="Date" fullWidth={true} floatingLabelText="Date"/>
 
-              <RaisedButton label='Submit' type="submit" fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' />
+              {/* <RaisedButton label='Submit' type="submit" fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' /> */}
             </div>
           </form>
         </div>

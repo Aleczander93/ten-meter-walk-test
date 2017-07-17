@@ -1,7 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-// import Patient from './Patientwref'
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 export default class Results extends React.Component {
 
@@ -13,7 +11,6 @@ export default class Results extends React.Component {
 
   render() {
     return (
-      <div className="container">
         <div className="card">
           <Card>
             <CardHeader
@@ -41,12 +38,8 @@ export default class Results extends React.Component {
                 Average Self-Selected Velocity: m/s<br />
                 Average Fast-Velocity: m/s<br />
             </CardText>
-            <CardActions>
-              <FlatButton label="Copy" fullWidth={true} />
-            </CardActions>
           </Card>
         </div>
-      </div>
 
     )
   }
