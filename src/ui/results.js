@@ -36,8 +36,6 @@ export default class Results extends React.Component {
             </CardText>
           </Card>
         </div>
-
     )
   }
-
 }

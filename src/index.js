@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import C from './reduxFiles/constants';
+// import C from './reduxFiles/constants';
 import { Provider } from 'react-redux';
-import patientData from './reduxFiles/initialState';
+// import patientData from './reduxFiles/initialState';
 import storeFactory from './reduxFiles/store/store';
 
 injectTapEventPlugin();

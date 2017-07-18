@@ -4,8 +4,6 @@ import DatePicker from 'material-ui/DatePicker';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-
-
 export default class Patient extends React.Component {
 
    handleSubmit(event) {
@@ -21,7 +19,6 @@ export default class Patient extends React.Component {
   render() {
     return (
       <div className="container">
-
         <form onSubmit={this.handleSubmit}>
           <div>
             <TextField

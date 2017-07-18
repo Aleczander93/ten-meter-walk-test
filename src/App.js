@@ -6,10 +6,11 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
-import Patient from './Patient'
+import Patient from './ui/patient'
 // import Form from './reduxformpractice'
-import Timer from './TimerTable'
-import Results from './Results'
+import Test from './ui/tests'
+import Results from './ui/results'
+// import stopwatch from './stopwatch'
 // import Form from './reduxformpractice'
 import Snackbar from 'material-ui/Snackbar';
 import {
@@ -48,12 +49,6 @@ class App extends React.Component {
         this.setState({stepIndex: stepIndex - 1});
       }
     };
-
-    // handleTouchTap = () => {
-    //   this.setState({
-    //     snackBarOpen: true,
-    //   });
-    // };
 
     handleRequestClose = () => {
       this.setState({
@@ -157,7 +152,7 @@ class App extends React.Component {
                 Begin Test
               </StepButton>
               <StepContent>
-                <Timer />
+                <Test />
                 {this.renderStepActions(1)}
               </StepContent>
             </Step>
