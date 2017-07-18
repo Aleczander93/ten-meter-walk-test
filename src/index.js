@@ -4,22 +4,16 @@ import './index.css';
 import App from './App';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-// import { Provider } from 'react-redux';
-// import { createStore } from 'redux'
-// import { reducer as formReducer } from 'redux-form'
-
-// const reducers = {
-//   form: formReducer     // <---- Mounted at 'form'
-// }
-//
-// const store = createStore(reducer)
-
+import C from './reduxFiles/constants';
+import { Provider } from 'react-redux';
+import patientData from './reduxFiles/initialState';
+import storeFactory from './reduxFiles/store/store';
 
 injectTapEventPlugin();
 
 ReactDOM.render(
-  // <Provider store={store}>
+  <Provider store={storeFactory}>
     <App />
-  // </Provider>
+  </Provider>
     ,
    document.getElementById('root'));

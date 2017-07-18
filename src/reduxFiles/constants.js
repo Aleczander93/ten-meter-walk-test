@@ -1,0 +1,10 @@
+const constants = {
+  ADD_PATIENT: "ADD_PATIENT",
+  START_TIMER: "START_TIMER",
+  STOP_TIMER: "STOP_TIMER",
+  TIMER_SAVED: "TIMER_SAVED",
+  TICK:"TICK",
+  INCREMENT:"INCREMENT"
+}
+
+export default constants

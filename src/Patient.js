@@ -8,11 +8,6 @@ import MenuItem from 'material-ui/MenuItem';
 
 export default class Patient extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //     this.renderStepActions = this.renderStepActions.bind(this);
-  //   }
-
    handleSubmit(event) {
     event.preventDefault();
    }
@@ -27,18 +22,22 @@ export default class Patient extends React.Component {
     return (
       <div className="container">
 
-        {/* <div className="title">
-          <h3>Patient Info</h3>
-        </div> */}
-
         <form onSubmit={this.handleSubmit}>
           <div>
             <TextField
-              hintText="John Doe"
-              floatingLabelText="Full Name"
+              hintText="John"
+              floatingLabelText="First Name"
               fullWidth={true}
               type="text"
-              name='fullName'
+              name='firstName'
+            /><br />
+
+            <TextField
+              hintText="Doe"
+              floatingLabelText="Last Name"
+              fullWidth={true}
+              type="text"
+              name='lastName'
             /><br />
 
             <SelectField

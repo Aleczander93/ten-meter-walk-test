@@ -118,7 +118,7 @@ class App extends React.Component {
           <div>
               <AppBar
                 title={<img src='OPIElogo.png' alt='OPIE LOGO' width="157px" height="70px"/>}
-                iconElementRight={<IconButton iconStyle={{fill:"#777777", marginTop:'6px', borderRadius:'5px', padding:'2px', border:'lightgrey 1px solid', width:'46px', height:"40px"}} style={{padding:"0px", width:'34px', height:"34px"}}><NavigationMenu/></IconButton>}
+                iconElementRight={<IconButton iconStyle={{fill:"#777777", marginTop:'5px', borderRadius:'5px', padding:'2px', border:'lightgrey 1px solid', width:'46px', height:"40px"}} style={{padding:"0px", width:'34px', height:"34px"}}><NavigationMenu/></IconButton>}
                 onRightIconButtonTouchTap={this.handleToggle}
                 showMenuIconButton={false}
                 style={{backgroundColor: "#f8f8f8", padding: "10px 55px 10px 15px"}}

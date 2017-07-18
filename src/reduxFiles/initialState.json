@@ -1,0 +1,14 @@
+{
+  "patientData": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "deviceUsed":"None",
+    "date":"2016-07-17",
+    "selectedVelocity_1":0,
+    "selectedVelocity_2":0,
+    "selectedVelocity_3":0,
+    "fastVelocity_1":0,
+    "fastVelocity_2":0,
+    "fastVelocity_3":0
+  }
+}
