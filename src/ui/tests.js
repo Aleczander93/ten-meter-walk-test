@@ -190,7 +190,7 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test2 === 0 ||
                    this.incrementer === this.state.lastClearedIncrementer
-                   ? <AvPlayArrow className="start-btn" label="Begin" onClick={this.handleStartClick2.bind(this)}/>
+                   ? <AvPlayArrow className="start-btn" label="Begin" onClick={this.handleStartClick.bind(this)}/>
                    : <AvPause className="stop-btn" label="Stop" onClick={this.handleStopClick.bind(this)}/>
                  )}
 
