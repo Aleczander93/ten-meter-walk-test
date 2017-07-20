@@ -1,5 +1,7 @@
 import React from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+// import RaisedButton from 'material-ui/RaisedButton';
+
 
 export default class Results extends React.Component {
 
@@ -33,6 +35,9 @@ export default class Results extends React.Component {
                   Average Self-Selected Velocity: m/s<br />
                   Average Fast-Velocity: m/s<br />
                 </div>
+
+                {/* <RaisedButton className='copyBtn' label='Copy' data-clipboard-action="copy" data-clipboard-target="#cardtext" fullWidth={true} labelColor='#fff' color='white' backgroundColor='#64DD17' /> */}
+
             </CardText>
           </Card>
         </div>

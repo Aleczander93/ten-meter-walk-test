@@ -3089,7 +3089,7 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2:
+invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2, invariant@~2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -5095,6 +5095,13 @@ react-tap-event-plugin@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-tap-event-plugin/-/react-tap-event-plugin-2.0.1.tgz#316beb3bc6556e29ec869a7293e89c826a9074d2"
   dependencies:
     fbjs "^0.8.6"
+
+react-timer-hoc@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-timer-hoc/-/react-timer-hoc-2.2.0.tgz#69a2537fb294ab60ab67b5a32f1a434dc67e8747"
+  dependencies:
+    invariant "~2.2.2"
+    prop-types "^15.5.10"
 
 react-transition-group@^1.1.2:
   version "1.2.0"
