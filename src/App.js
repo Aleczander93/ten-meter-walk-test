@@ -31,19 +31,19 @@ class App extends React.Component {
         stepIndex: 0,
         openSnackBar: false,
         firstName: '',
-        lastname: '',
+        lastName: '',
         device: '',
         date: ''
       };
     }
 
 
-    stateInfo = (firstName, lastname, device, date ) => {
+    stateInfo = (firstName, lastName, device, date ) => {
         this.setState({
           firstName: firstName,
-          lastname: lastname,
+          lastName: lastName,
           device: device,
-          date: date
+          date:date
         });
     }
 

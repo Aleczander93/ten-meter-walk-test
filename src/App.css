@@ -14,15 +14,19 @@ h3 {
   color: #509baa;
 }
 
-.submitButton {
-  margin-left: 9%;
+.submitContainer{
+  text-align: center;
 }
+
+/*.submitButton {
+  margin-left: ;
+}*/
 
 .menuButton{
   height: 38px;
   width:48px;
   border: black;
-  
+
 }
 
 .reset-btn {

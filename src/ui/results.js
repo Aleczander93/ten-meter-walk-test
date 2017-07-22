@@ -1,31 +1,34 @@
 import React from 'react';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardText} from 'material-ui/Card';
 // import RaisedButton from 'material-ui/RaisedButton';
 
 
 export default class Results extends React.Component {
 
-
   // handleInfo() {
   //   this.props.updateInfo("firstName", "lastName", "device", "date");
   // }
-
 
   render() {
     return (
         <div className="card">
           <Card>
-            <CardHeader
-              title="Name"
-              subtitle="Date"
+            {/* <CardHeader
+              title={this.props.firstName}
+              subtitle="date"
               avatar="opie_logo.png"
-            />
+            /> */}
 
             <CardText className="cardtext">
                 <div id="copy-target">
+                  <strong>Patient's Name:</strong>{this.props.firstName} {this.props.lastName}
+                  <br />
+                  <strong>Assistive Device Used: </strong> {this.props.device}
+                  <br />
+                  <br />
                   <strong>Self-Selected Velocity</strong>
                   <br />
-                  Trial 1: {this.firstName} sec.<br />
+                  Trial 1: sec.<br />
                   Trial 2: sec.<br />
                   Trial 3: sec.<br />
                   Average Time: sec.<br />

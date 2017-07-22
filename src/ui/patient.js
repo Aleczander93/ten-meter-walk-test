@@ -3,30 +3,53 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 export default class Patient extends React.Component {
 
-handleInfo(value) {
-  // var firstName = '';
-  // var lastName = this.refs.lastnameinfo;
-  // var device = this.refs.deviceinfo;
-  // var date = this.refs.dateinfo;
+  constructor(props) {
+    super(props);
+      this.state = {
+        firstName: '',
+        lastName: '',
+        device: '',
+        date: ''
+      };
 
-  this.props.updateInfo("firstName", "lastName", "device", "date");
+      this.handlefirstName = this.handlefirstName.bind(this);
+      this.handlelastName = this.handlelastName.bind(this);
+      this.handleDate = this.handleDate.bind(this);
+
+    }
+
+submitInfo() {
+  this.props.updateInfo(this.state.firstName,this.state.lastName, this.state.device, this.state.date);
 }
 
 
-  //  handleSubmit(event) {
-  //   event.preventDefault();
-  //  }
+   handleSubmit(event) {
+    event.preventDefault();
+   }
 
-   state = {
-     value: '',
-   };
+  handleDevice = (event, index, device) => {
+    this.setState({device});
+  }
 
+  handlefirstName(event){
+    this.setState({firstName: event.target.value});
+  };
 
+  handlelastName(event){
+    this.setState({lastName: event.target.value});
+  };
 
-  handleChange = (event, index, value) => this.setState({value});
+  handleDate(event , date){
+    var currentState = this.state;
+    currentState.date = date;
+    this.setState({currentState});
+  };
+
 
   render() {
     return (
@@ -34,20 +57,21 @@ handleInfo(value) {
         <form onSubmit={this.handleSubmit}>
           <div>
             <TextField
-              // ref="firstnameinfo"
-              // hintText="John"
-              // floatingLabelText="First Name"
+              floatingLabelText="First Name"
               fullWidth={true}
               type="text"
-              value={this.firstName}
               name='firstName'
-            /><br />
+              value={this.firstName}
+              onChange={this.handlefirstName}
+            />
+
+            <br />
 
             <TextField
-              ref="lastnameinfo"
-              hintText="Doe"
               floatingLabelText="Last Name"
               fullWidth={true}
+              value={this.lastName}
+              onChange={this.handlelastName}
               type="text"
               name='lastName'
             /><br />
@@ -56,9 +80,9 @@ handleInfo(value) {
                 ref="deviceinfo"
                 name='value'
                 floatingLabelText="Assistive Device"
-                value={this.state.value}
+                value={this.state.device}
                 fullWidth={true}
-                onChange={this.handleChange}
+                onChange={this.handleDevice}
               >
                 <MenuItem value="None" primaryText="None" />
                 <MenuItem value="Cane" primaryText="Cane" />
@@ -69,9 +93,10 @@ handleInfo(value) {
               </SelectField>
               <br />
 
-              <DatePicker hintText="Date" name='date' ref='dateinfo' fullWidth={true} floatingLabelText="Date"/>
-
-              {/* <RaisedButton label='Submit' type="submit" fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' /> */}
+              <DatePicker hintText="Date" value={this.state.date} onChange={this.handleDate} name='date' fullWidth={true} floatingLabelText="Date"/>
+              <div className="submitContainer">
+                <RaisedButton label='Submit' onClick={this.submitInfo.bind(this)} type="submit" style={{width: '25%'}} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' />
+              </div>
             </div>
           </form>
         </div>
