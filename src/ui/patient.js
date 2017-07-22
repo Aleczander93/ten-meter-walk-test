@@ -6,15 +6,27 @@ import MenuItem from 'material-ui/MenuItem';
 
 export default class Patient extends React.Component {
 
-   handleSubmit(event) {
-    event.preventDefault();
-   }
+handleInfo(value) {
+  // var firstName = '';
+  // var lastName = this.refs.lastnameinfo;
+  // var device = this.refs.deviceinfo;
+  // var date = this.refs.dateinfo;
+
+  this.props.updateInfo("firstName", "lastName", "device", "date");
+}
+
+
+  //  handleSubmit(event) {
+  //   event.preventDefault();
+  //  }
 
    state = {
      value: '',
    };
 
-   handleChange = (event, index, value) => this.setState({value});
+
+
+  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return (
@@ -22,14 +34,17 @@ export default class Patient extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <TextField
-              hintText="John"
-              floatingLabelText="First Name"
+              // ref="firstnameinfo"
+              // hintText="John"
+              // floatingLabelText="First Name"
               fullWidth={true}
               type="text"
+              value={this.firstName}
               name='firstName'
             /><br />
 
             <TextField
+              ref="lastnameinfo"
               hintText="Doe"
               floatingLabelText="Last Name"
               fullWidth={true}
@@ -38,6 +53,8 @@ export default class Patient extends React.Component {
             /><br />
 
             <SelectField
+                ref="deviceinfo"
+                name='value'
                 floatingLabelText="Assistive Device"
                 value={this.state.value}
                 fullWidth={true}
@@ -52,7 +69,7 @@ export default class Patient extends React.Component {
               </SelectField>
               <br />
 
-              <DatePicker hintText="Date" fullWidth={true} floatingLabelText="Date"/>
+              <DatePicker hintText="Date" name='date' ref='dateinfo' fullWidth={true} floatingLabelText="Date"/>
 
               {/* <RaisedButton label='Submit' type="submit" fullWidth={true} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' /> */}
             </div>

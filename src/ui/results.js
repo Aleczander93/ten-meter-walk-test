@@ -5,6 +5,12 @@ import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 export default class Results extends React.Component {
 
+
+  // handleInfo() {
+  //   this.props.updateInfo("firstName", "lastName", "device", "date");
+  // }
+
+
   render() {
     return (
         <div className="card">
@@ -14,11 +20,12 @@ export default class Results extends React.Component {
               subtitle="Date"
               avatar="opie_logo.png"
             />
+
             <CardText className="cardtext">
                 <div id="copy-target">
                   <strong>Self-Selected Velocity</strong>
                   <br />
-                  Trial 1: sec.<br />
+                  Trial 1: {this.firstName} sec.<br />
                   Trial 2: sec.<br />
                   Trial 3: sec.<br />
                   Average Time: sec.<br />

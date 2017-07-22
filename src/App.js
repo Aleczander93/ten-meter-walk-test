@@ -22,7 +22,6 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
-
 class App extends React.Component {
 
   constructor(props) {
@@ -30,9 +29,30 @@ class App extends React.Component {
       this.state = {
         open: false,
         stepIndex: 0,
-        openSnackBar: false
+        openSnackBar: false,
+        firstName: '',
+        lastname: '',
+        device: '',
+        date: ''
       };
     }
+
+
+    stateInfo = (firstName, lastname, device, date ) => {
+        this.setState({
+          firstName: firstName,
+          lastname: lastname,
+          device: device,
+          date: date
+        });
+    }
+
+    // updateInfo(props){
+    //   updateState: function(props) {
+    //      this.props.updateInfo("firstName", "lastName", "value", "date")
+    //   }
+    // }
+
 
     handleNext = () => {
       const {stepIndex} = this.state;
@@ -143,7 +163,7 @@ class App extends React.Component {
                 Patient Info
               </StepButton>
               <StepContent>
-                <Patient />
+              <Patient updateInfo={this.stateInfo}/>
                 {this.renderStepActions(0)}
               </StepContent>
             </Step>
@@ -161,7 +181,7 @@ class App extends React.Component {
                 Results
               </StepButton>
               <StepContent style={{marginLeft:"0px", paddingLeft:"16px"}}>
-                <Results />
+                <Results firstName={this.state.firstName} lastName={this.state.lastName} device={this.state.device} date={this.state.date} />
                 {this.renderStepActions(2)}
               </StepContent>
             </Step>
