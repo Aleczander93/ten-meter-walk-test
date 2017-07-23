@@ -33,26 +33,73 @@ class App extends React.Component {
         firstName: '',
         lastName: '',
         device: '',
-        date: ''
+        date: '',
+          test1:0,
+          test2:0,
+          test3:0,
+          test4:0,
+          test5:0,
+          test6:0
       };
     }
 
 
-    stateInfo = (firstName, lastName, device, date ) => {
+    patientInfo = (firstName, lastName, device, date) => {
         this.setState({
           firstName: firstName,
           lastName: lastName,
           device: device,
-          date:date
+          date: date
         });
     }
 
-    // updateInfo(props){
-    //   updateState: function(props) {
-    //      this.props.updateInfo("firstName", "lastName", "value", "date")
-    //   }
-    // }
+    testInfo1 = (test1) => {
+      this.setState({
 
+          test1: test1
+
+      });
+    }
+
+    testInfo2 = (test2) => {
+      this.setState({
+
+          test2: test2
+
+      });
+    }
+
+    testInfo3 = (test3) => {
+      this.setState({
+
+          test3: test3
+
+      });
+    }
+
+    testInfo4 = (test4) => {
+      this.setState({
+
+          test4: test4
+
+      });
+    }
+
+    testInfo5 = (test5) => {
+      this.setState({
+
+          test5: test5
+
+      });
+    }
+
+    testInfo6 = (test6) => {
+      this.setState({
+
+          test6: test6
+
+      });
+    }
 
     handleNext = () => {
       const {stepIndex} = this.state;
@@ -80,14 +127,6 @@ class App extends React.Component {
     handleToggle = () => this.setState({open: !this.state.open});
 
     handleClose = () => this.setState({open: false});
-
-    // addItem(tempItem) {
-    //   var tempPatient = this.state.Patient
-    //   tempPatient.push(tempItem);
-    //   this.setState({
-    //     Patient : tempPatient
-    //   });
-    // }
 
     renderStepActions(step) {
     const {stepIndex} = this.state;
@@ -163,7 +202,7 @@ class App extends React.Component {
                 Patient Info
               </StepButton>
               <StepContent>
-              <Patient updateInfo={this.stateInfo}/>
+              <Patient updatePatientInfo={this.patientInfo}/>
                 {this.renderStepActions(0)}
               </StepContent>
             </Step>
@@ -172,7 +211,8 @@ class App extends React.Component {
                 Begin Test
               </StepButton>
               <StepContent>
-                <Test />
+                <Test updateTests1={this.testInfo1} updateTests2={this.testInfo2} updateTests3={this.testInfo3}
+                      updateTests4={this.testInfo4} updateTests5={this.testInfo5} updateTests6={this.testInfo6}/>
                 {this.renderStepActions(1)}
               </StepContent>
             </Step>
@@ -181,7 +221,9 @@ class App extends React.Component {
                 Results
               </StepButton>
               <StepContent style={{marginLeft:"0px", paddingLeft:"16px"}}>
-                <Results firstName={this.state.firstName} lastName={this.state.lastName} device={this.state.device} date={this.state.date} />
+                <Results firstName={this.state.firstName} lastName={this.state.lastName} device={this.state.device} date={this.state.date}
+                  test1={this.state.test1} test2={this.state.test2} test3={this.state.test3}
+                  test4={this.state.test4} test5={this.state.test5} test6={this.state.test6} />
                 {this.renderStepActions(2)}
               </StepContent>
             </Step>
@@ -189,18 +231,7 @@ class App extends React.Component {
 
         </div>
       </div>
-
-
-          {/* <div>
-            <div className="row">
-              <div className="col s12 m6"></div>
-              <div className="col s12 m6"></div>
-              <div className="col s12 m12"></div>
-            </div>
-          </div> */}
-
-
-        </div>
+    </div>
       </MuiThemeProvider>
     );
   }

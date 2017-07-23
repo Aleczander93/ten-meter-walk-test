@@ -14,7 +14,7 @@ export default class Patient extends React.Component {
         firstName: '',
         lastName: '',
         device: '',
-        date: ''
+        date: {}
       };
 
       this.handlefirstName = this.handlefirstName.bind(this);
@@ -24,7 +24,7 @@ export default class Patient extends React.Component {
     }
 
 submitInfo() {
-  this.props.updateInfo(this.state.firstName,this.state.lastName, this.state.device, this.state.date);
+  this.props.updatePatientInfo(this.state.firstName, this.state.lastName, this.state.device, this.state.date);
 }
 
 

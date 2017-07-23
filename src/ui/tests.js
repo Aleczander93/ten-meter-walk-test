@@ -59,7 +59,7 @@ export default class Test extends React.Component {
           test5:0,
           test6:0
         },
-        laps: [],
+        // laps: [],
         selectable: false,
         lastClearedIncrementer1: null,
         lastClearedIncrementer2: null,
@@ -123,11 +123,13 @@ export default class Test extends React.Component {
         });
       }
 
-      handleLapClick1() {
-        this.setState({
-          laps: this.state.laps.concat(this.state.secondsElapsed.test1)
-        })
+      handleSave1() {
+        this.props.updateTests1(this.state.secondsElapsed.test1)
       }
+
+      handleTest1 = (event) => {
+        this.setState({formattedSeconds1: event.target.value});
+      };
 
       handleOpen1 = () => {
           this.setState({open1: true});
@@ -175,11 +177,13 @@ export default class Test extends React.Component {
             });
           }
 
-          handleLapClick2() {
-            this.setState({
-              laps: this.state.laps.concat(this.state.secondsElapsed.test2)
-            })
+          handleSave2() {
+            this.props.updateTests2(this.state.secondsElapsed.test2)
           }
+
+          handleTest2 = (event) => {
+            this.setState({formattedSeconds2: event.target.value});
+          };
 
           handleOpen2 = () => {
               this.setState({open2: true});
@@ -227,11 +231,13 @@ export default class Test extends React.Component {
                 });
               }
 
-              handleLapClick3() {
-                this.setState({
-                  laps: this.state.laps.concat(this.state.secondsElapsed.test3)
-                })
+              handleSave3() {
+                this.props.updateTests3(this.state.secondsElapsed.test3)
               }
+
+              handleTest3 = (event) => {
+                this.setState({formattedSeconds3: event.target.value});
+              };
 
               handleOpen3 = () => {
                   this.setState({open3: true});
@@ -280,11 +286,13 @@ export default class Test extends React.Component {
             });
           }
 
-          handleLapClick4() {
-            this.setState({
-              laps: this.state.laps.concat(this.state.secondsElapsed.test4)
-            })
+          handleSave4() {
+            this.props.updateTests4(this.state.secondsElapsed.test4)
           }
+
+          handleTest4 = (event) => {
+            this.setState({formattedSeconds4: event.target.value});
+          };
 
           handleOpen4 = () => {
               this.setState({open4: true});
@@ -295,102 +303,106 @@ export default class Test extends React.Component {
           };
 
 
-      ////////////////////////////////////////////////////////////////
-          handleStartClick5() {
-            this.incrementer5 = setInterval( () =>
-              this.setState({
-                secondsElapsed: {
-                    test5: this.state.secondsElapsed.test5 + 1,
-                    test1: this.state.secondsElapsed.test1,
-                    test3: this.state.secondsElapsed.test3,
-                    test4: this.state.secondsElapsed.test4,
-                    test2: this.state.secondsElapsed.test2,
-                    test6: this.state.secondsElapsed.test6,
-                  }
-                })
-              , 1000);
-            }
+    ////////////////////////////////////////////////////////////////
+        handleStartClick5() {
+          this.incrementer5 = setInterval( () =>
+            this.setState({
+              secondsElapsed: {
+                  test5: this.state.secondsElapsed.test5 + 1,
+                  test1: this.state.secondsElapsed.test1,
+                  test3: this.state.secondsElapsed.test3,
+                  test4: this.state.secondsElapsed.test4,
+                  test2: this.state.secondsElapsed.test2,
+                  test6: this.state.secondsElapsed.test6,
+                }
+              })
+            , 1000);
+          }
 
-          handleStopClick5() {
+        handleStopClick5() {
+          clearInterval(this.incrementer5);
+          this.setState({
+            lastClearedIncrementer5: this.incrementer5
+            });
+          }
+
+        handleResetClick5() {
             clearInterval(this.incrementer5);
             this.setState({
-              lastClearedIncrementer5: this.incrementer5
-              });
-            }
+              secondsElapsed: {
+                test5:0,
+                test2: this.state.secondsElapsed.test2,
+                test1: this.state.secondsElapsed.test1,
+                test4: this.state.secondsElapsed.test4,
+                test3: this.state.secondsElapsed.test3,
+                test6: this.state.secondsElapsed.test6,
+              },
+              laps: []
+            });
+          }
 
-          handleResetClick5() {
-              clearInterval(this.incrementer5);
-              this.setState({
-                secondsElapsed: {
-                  test5:0,
-                  test2: this.state.secondsElapsed.test2,
-                  test1: this.state.secondsElapsed.test1,
-                  test4: this.state.secondsElapsed.test4,
-                  test3: this.state.secondsElapsed.test3,
-                  test6: this.state.secondsElapsed.test6,
-                },
-                laps: []
-              });
-            }
+          handleSave5() {
+            this.props.updateTests5(this.state.secondsElapsed.test5)
+          }
 
-            handleLapClick5() {
-              this.setState({
-                laps: this.state.laps.concat(this.state.secondsElapsed.test5)
-              })
-            }
+          handleTest5 = (event) => {
+            this.setState({formattedSeconds5: event.target.value});
+          };
 
-            handleOpen5 = () => {
-                this.setState({open5: true});
-            };
+          handleOpen5 = () => {
+              this.setState({open5: true});
+          };
 
-            handleClose5 = () => {
-                this.setState({open5: false});
-            };
+          handleClose5 = () => {
+              this.setState({open5: false});
+          };
 
 
-          ////////////////////////////////////////////////////////////////
-          handleStartClick6() {
-            this.incrementer6 = setInterval( () =>
-              this.setState({
-                secondsElapsed: {
-                    test6: this.state.secondsElapsed.test6 + 1,
-                    test1: this.state.secondsElapsed.test1,
-                    test3: this.state.secondsElapsed.test3,
-                    test4: this.state.secondsElapsed.test4,
-                    test5: this.state.secondsElapsed.test5,
-                    test2: this.state.secondsElapsed.test2,
-                  }
-                })
-              , 1000);
-            }
-
-          handleStopClick6() {
-            clearInterval(this.incrementer6);
+        ////////////////////////////////////////////////////////////////
+        handleStartClick6() {
+          this.incrementer6 = setInterval( () =>
             this.setState({
-              lastClearedIncrementer6: this.incrementer6
-              });
-            }
-
-          handleResetClick6() {
-              clearInterval(this.incrementer6);
-              this.setState({
-                secondsElapsed: {
-                  test6:0,
-                  test2: this.state.secondsElapsed.test2,
+              secondsElapsed: {
+                  test6: this.state.secondsElapsed.test6 + 1,
                   test1: this.state.secondsElapsed.test1,
+                  test3: this.state.secondsElapsed.test3,
                   test4: this.state.secondsElapsed.test4,
                   test5: this.state.secondsElapsed.test5,
-                  test3: this.state.secondsElapsed.test3,
-                },
-                laps: []
-              });
-            }
-
-            handleLapClick6() {
-              this.setState({
-                laps: this.state.laps.concat(this.state.secondsElapsed.test6)
+                  test2: this.state.secondsElapsed.test2,
+                }
               })
-            }
+            , 1000);
+          }
+
+        handleStopClick6() {
+          clearInterval(this.incrementer6);
+          this.setState({
+            lastClearedIncrementer6: this.incrementer6
+            });
+          }
+
+        handleResetClick6() {
+            clearInterval(this.incrementer6);
+            this.setState({
+              secondsElapsed: {
+                test6:0,
+                test2: this.state.secondsElapsed.test2,
+                test1: this.state.secondsElapsed.test1,
+                test4: this.state.secondsElapsed.test4,
+                test5: this.state.secondsElapsed.test5,
+                test3: this.state.secondsElapsed.test3,
+              },
+              laps: []
+            });
+          }
+
+          handleSave6() {
+            this.props.updateTests6(this.state.secondsElapsed.test6)
+          }
+
+          handleTest6 = (event) => {
+            this.setState({formattedSeconds6: event.target.value});
+          };
 
           handleOpen6 = () => {
               this.setState({open6: true});
@@ -400,15 +412,15 @@ export default class Test extends React.Component {
               this.setState({open6: false});
           };
 
-        isSelected = (index) => {
-          return this.state.selected.indexOf(index) !== -1;
-        };
+          isSelected = (index) => {
+            return this.state.selected.indexOf(index) !== -1;
+          };
 
-        handleRowSelection = (selectedRows) => {
-          this.setState({
-            selected: selectedRows,
-          });
-        };
+          handleRowSelection = (selectedRows) => {
+            this.setState({
+              selected: selectedRows,
+            });
+          };
 
   render() {
 
@@ -515,7 +527,10 @@ export default class Test extends React.Component {
                <TableRowColumn>Test 1</TableRowColumn>
                <TableRowColumn>
 
-                 <h1 className="stopwatch-timer">
+                 <h1
+                   className="stopwatch-timer"
+                   value={this.formattedSeconds1}
+                   onChange={this.handleTest1}>
                   {formattedSeconds1(this.state.secondsElapsed.test1)}
                  </h1>
 
@@ -536,7 +551,7 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test1 !== 0 &&
                   this.incrementer1 === this.state.lastClearedIncrementer1
-                  ? <ContentSave label='Submit Results' onClick={this.handleLapClick1.bind(this)} className='submitButton'  />
+                  ? <ContentSave label='Submit Results' onClick={this.handleSave1.bind(this)} className='submitButton'  />
                   : null
                  )}
 
@@ -549,19 +564,16 @@ export default class Test extends React.Component {
                      Are you sure you want to reset the timer?
                   </Dialog>
 
-                  {/* <ul className="stopwatch-laps">
-                    { this.state.laps.map((lap, i) =>
-                        <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
-                    )}
-                  </ul> */}
-
                </TableRowColumn>
              </TableRow>
              <TableRow selected={this.isSelected(1)}>
                <TableRowColumn>Test 2</TableRowColumn>
                <TableRowColumn>
 
-                 <h1 className="stopwatch-timer">
+                 <h1
+                 value={this.formattedSeconds2}
+                 onChange={this.handleTest2}
+                 className="stopwatch-timer">
                   {formattedSeconds2(this.state.secondsElapsed.test2)}
                  </h1>
 
@@ -582,7 +594,7 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test2 !== 0 &&
                   this.incrementer2 === this.state.lastClearedIncrementer2
-                  ? <ContentSave label='Submit Results' onClick={this.handleLapClick2.bind(this)} className='submitButton'  />
+                  ? <ContentSave label='Submit Results' onClick={this.handleSave2.bind(this)} className='submitButton'  />
                   : null
                  )}
 
@@ -595,19 +607,16 @@ export default class Test extends React.Component {
                      Are you sure you want to reset the timer?
                   </Dialog>
 
-                  {/* <ul className="stopwatch-laps">
-                    { this.state.laps.map((lap, i) =>
-                        <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
-                    )}
-                  </ul> */}
-
                </TableRowColumn>
              </TableRow>
              <TableRow selected={this.isSelected(2)}>
                <TableRowColumn>Test 3</TableRowColumn>
                <TableRowColumn>
 
-                 <h1 className="stopwatch-timer">
+                 <h1
+                 value={this.formattedSeconds3}
+                 onChange={this.handleTest3}
+                 className="stopwatch-timer">
                   {formattedSeconds3(this.state.secondsElapsed.test3)}
                  </h1>
 
@@ -628,7 +637,7 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test3 !== 0 &&
                   this.incrementer3 === this.state.lastClearedIncrementer3
-                  ? <ContentSave label='Submit Results' onClick={this.handleLapClick3.bind(this)} className='submitButton'  />
+                  ? <ContentSave label='Submit Results' onClick={this.handleSave3.bind(this)} className='submitButton'  />
                   : null
                  )}
 
@@ -640,12 +649,6 @@ export default class Test extends React.Component {
                      onRequestClose={this.handleClose3}>
                      Are you sure you want to reset the timer?
                   </Dialog>
-
-                  {/* <ul className="stopwatch-laps">
-                    { this.state.laps.map((lap, i) =>
-                        <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
-                    )}
-                  </ul> */}
 
                </TableRowColumn>
              </TableRow>
@@ -663,7 +666,10 @@ export default class Test extends React.Component {
                     <TableRowColumn>Test 1</TableRowColumn>
                     <TableRowColumn>
 
-                      <h1 className="stopwatch-timer">
+                      <h1
+                       value={this.formattedSeconds4}
+                       onChange={this.handleTest4}
+                       className="stopwatch-timer">
                         {formattedSeconds4(this.state.secondsElapsed.test4)}
                       </h1>
 
@@ -684,7 +690,7 @@ export default class Test extends React.Component {
 
                       {(this.state.secondsElapsed.test4 !== 0 &&
                        this.incrementer4 === this.state.lastClearedIncrementer4
-                       ? <ContentSave label='Submit Results' onClick={this.handleLapClick4.bind(this)} className='submitButton'  />
+                       ? <ContentSave label='Submit Results' onClick={this.handleSave4.bind(this)} className='submitButton'  />
                        : null
                       )}
 
@@ -697,19 +703,16 @@ export default class Test extends React.Component {
                           Are you sure you want to reset the timer?
                        </Dialog>
 
-                       {/* <ul className="stopwatch-laps">
-                         { this.state.laps.map((lap, i) =>
-                             <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
-                         )}
-                       </ul> */}
-
                     </TableRowColumn>
                   </TableRow>
                   <TableRow selected={this.isSelected(1)}>
                     <TableRowColumn>Test 2</TableRowColumn>
                     <TableRowColumn>
 
-                      <h1 className="stopwatch-timer">
+                      <h1
+                       value={this.formattedSeconds5}
+                       onChange={this.handleTest5}
+                       className="stopwatch-timer">
                        {formattedSeconds5(this.state.secondsElapsed.test5)}
                       </h1>
 
@@ -730,7 +733,7 @@ export default class Test extends React.Component {
 
                       {(this.state.secondsElapsed.test5 !== 0 &&
                        this.incrementer5 === this.state.lastClearedIncrementer5
-                       ? <ContentSave label='Submit Results' onClick={this.handleLapClick5.bind(this)} className='submitButton'  />
+                       ? <ContentSave label='Submit Results' onClick={this.handleSave5.bind(this)} className='submitButton'  />
                        : null
                       )}
 
@@ -743,19 +746,16 @@ export default class Test extends React.Component {
                           Are you sure you want to reset the timer?
                        </Dialog>
 
-                       {/* <ul className="stopwatch-laps">
-                         { this.state.laps.map((lap, i) =>
-                             <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
-                         )}
-                       </ul> */}
-
                     </TableRowColumn>
                   </TableRow>
                   <TableRow selected={this.isSelected(2)}>
                     <TableRowColumn>Test 3</TableRowColumn>
                     <TableRowColumn>
 
-                      <h1 className="stopwatch-timer">
+                      <h1
+                       value={this.formattedSeconds6}
+                       onChange={this.handleTest6}
+                       className="stopwatch-timer">
                        {formattedSeconds6(this.state.secondsElapsed.test6)}
                       </h1>
 
@@ -776,7 +776,7 @@ export default class Test extends React.Component {
 
                       {(this.state.secondsElapsed.test6 !== 0 &&
                        this.incrementer6 === this.state.lastClearedIncrementer6
-                       ? <ContentSave label='Submit Results' onClick={this.handleLapClick6.bind(this)} className='submitButton'  />
+                       ? <ContentSave label='Submit Results' onClick={this.handleSave6.bind(this)} className='submitButton'  />
                        : null
                       )}
 
@@ -788,12 +788,6 @@ export default class Test extends React.Component {
                           onRequestClose={this.handleClose6}>
                           Are you sure you want to reset the timer?
                        </Dialog>
-
-                       {/* <ul className="stopwatch-laps">
-                         { this.state.laps.map((lap, i) =>
-                             <li className="stopwatch-lap"><strong>{i + 1}</strong>{formattedSeconds(lap)}</li>
-                         )}
-                       </ul> */}
 
                         </TableRowColumn>
                       </TableRow>
