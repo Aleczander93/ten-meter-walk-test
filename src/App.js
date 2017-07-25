@@ -7,11 +7,8 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import Patient from './ui/patient'
-// import Form from './reduxformpractice'
 import Test from './ui/tests'
 import Results from './ui/results'
-// import stopwatch from './stopwatch'
-// import Form from './reduxformpractice'
 import Snackbar from 'material-ui/Snackbar';
 import {
   Step,

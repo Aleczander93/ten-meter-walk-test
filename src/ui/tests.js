@@ -15,8 +15,6 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-import {greenA200} from 'material-ui/styles/colors';
-
 const formattedSeconds1 = (sec1) =>
   Math.floor(sec1 / 60) +
     ':' +
