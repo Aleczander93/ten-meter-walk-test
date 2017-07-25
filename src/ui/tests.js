@@ -1,5 +1,5 @@
 import React from 'react';
-// import NavigationCheck from 'material-ui/svg-icons/navigation/check';
+import IconButton from 'material-ui/IconButton';
 import AvPlayArrow from 'material-ui/svg-icons/av/play-arrow';
 import AvPause from 'material-ui/svg-icons/av/pause';
 import AvReplay from 'material-ui/svg-icons/av/replay';
@@ -14,6 +14,8 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+
+import {greenA200} from 'material-ui/styles/colors';
 
 const formattedSeconds1 = (sec1) =>
   Math.floor(sec1 / 60) +
@@ -551,7 +553,10 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test1 !== 0 &&
                   this.incrementer1 === this.state.lastClearedIncrementer1
-                  ? <ContentSave label='Submit Results' onClick={this.handleSave1.bind(this)} className='submitButton'  />
+                  ?
+                    <IconButton style={{marginLeft:"-10px"}}>
+                      <ContentSave label='Submit Results' onClick={this.handleSave1.bind(this)} className='submitButton'  />
+                    </IconButton>
                   : null
                  )}
 
@@ -594,7 +599,10 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test2 !== 0 &&
                   this.incrementer2 === this.state.lastClearedIncrementer2
-                  ? <ContentSave label='Submit Results' onClick={this.handleSave2.bind(this)} className='submitButton'  />
+                  ?
+                  <IconButton style={{marginLeft:"-10px"}}>
+                    <ContentSave label='Submit Results' onClick={this.handleSave2.bind(this)} className='submitButton'  />
+                  </IconButton>
                   : null
                  )}
 
@@ -637,7 +645,10 @@ export default class Test extends React.Component {
 
                  {(this.state.secondsElapsed.test3 !== 0 &&
                   this.incrementer3 === this.state.lastClearedIncrementer3
-                  ? <ContentSave label='Submit Results' onClick={this.handleSave3.bind(this)} className='submitButton'  />
+                  ?
+                  <IconButton style={{marginLeft:"-10px"}}>
+                    <ContentSave label='Submit Results' onClick={this.handleSave3.bind(this)} className='submitButton'  />
+                  </IconButton>
                   : null
                  )}
 
@@ -690,7 +701,10 @@ export default class Test extends React.Component {
 
                       {(this.state.secondsElapsed.test4 !== 0 &&
                        this.incrementer4 === this.state.lastClearedIncrementer4
-                       ? <ContentSave label='Submit Results' onClick={this.handleSave4.bind(this)} className='submitButton'  />
+                       ?
+                       <IconButton style={{marginLeft:"-10px"}}>
+                        <ContentSave label='Submit Results' onClick={this.handleSave4.bind(this)} className='submitButton'  />
+                      </IconButton>
                        : null
                       )}
 
@@ -733,7 +747,10 @@ export default class Test extends React.Component {
 
                       {(this.state.secondsElapsed.test5 !== 0 &&
                        this.incrementer5 === this.state.lastClearedIncrementer5
-                       ? <ContentSave label='Submit Results' onClick={this.handleSave5.bind(this)} className='submitButton'  />
+                       ?
+                       <IconButton style={{marginLeft:"-10px"}}>
+                         <ContentSave label='Submit Results' onClick={this.handleSave5.bind(this)} className='submitButton'  />
+                       </IconButton>
                        : null
                       )}
 
@@ -776,7 +793,10 @@ export default class Test extends React.Component {
 
                       {(this.state.secondsElapsed.test6 !== 0 &&
                        this.incrementer6 === this.state.lastClearedIncrementer6
-                       ? <ContentSave label='Submit Results' onClick={this.handleSave6.bind(this)} className='submitButton'  />
+                       ?
+                       <IconButton style={{marginLeft:"-10px"}}>
+                         <ContentSave label='Submit Results' onClick={this.handleSave6.bind(this)} className='submitButton'  />
+                       </IconButton>
                        : null
                       )}
 
