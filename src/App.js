@@ -55,55 +55,45 @@ class App extends React.Component {
 
     testInfo1 = (test1) => {
       this.setState({
-
           test1: test1
-
       });
     }
 
     testInfo2 = (test2) => {
       this.setState({
-
           test2: test2
-
       });
     }
 
     testInfo3 = (test3) => {
       this.setState({
-
           test3: test3
-
       });
     }
 
     testInfo4 = (test4) => {
       this.setState({
-
           test4: test4
-
       });
     }
 
     testInfo5 = (test5) => {
       this.setState({
-
           test5: test5
-
       });
     }
 
     testInfo6 = (test6) => {
       this.setState({
-
           test6: test6
-
       });
     }
 
     handleNext = () => {
       const {stepIndex} = this.state;
-      if (stepIndex < 2) {
+       if (stepIndex < 1) {
+        this.refs.patient.submitInfo();
+      } if (stepIndex < 2) {
         this.setState({stepIndex: stepIndex + 1});
       } if (stepIndex === 2) {
         this.setState({openSnackBar: true});
@@ -120,7 +110,6 @@ class App extends React.Component {
     handleRequestClose = () => {
       this.setState({
         openSnackBar: false,
-
       });
     };
 
@@ -144,7 +133,7 @@ class App extends React.Component {
           />
           )}
           <RaisedButton
-            label={stepIndex === 2 ? 'Copy' : 'Next'}
+            label={stepIndex === 2 ? 'Copy' : 'Save'}
             disableTouchRipple={true}
             disableFocusRipple={true}
             backgroundColor="#00BBF9"
@@ -202,7 +191,7 @@ class App extends React.Component {
                 Patient Info
               </StepButton>
               <StepContent>
-              <Patient updatePatientInfo={this.patientInfo}/>
+              <Patient updatePatientInfo={this.patientInfo} ref='patient'/>
                 {this.renderStepActions(0)}
               </StepContent>
             </Step>

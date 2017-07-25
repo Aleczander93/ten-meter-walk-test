@@ -1,23 +1,23 @@
 import React from 'react';
 import {Card, CardText} from 'material-ui/Card';
+// import {ClipboardButton, Clipboard} from 'react-clipboard.js';
 // import RaisedButton from 'material-ui/RaisedButton';
 
 
 export default class Results extends React.Component {
 
 
+
   render() {
+
+
+
     return (
         <div className="card">
           <Card>
-            {/* <CardHeader
-              title={this.props.firstName}
-              subtitle="date"
-              avatar="opie_logo.png"
-            /> */}
 
             <CardText className="cardtext">
-                <div id="copy-target">
+                <span id="copy">
                   <strong>Patient's Name:</strong> {this.props.firstName} {this.props.lastName}
                   <br />
                   <strong>Assistive Device Used: </strong> {this.props.device}
@@ -43,7 +43,9 @@ export default class Results extends React.Component {
                   <br />
                   Average Self-Selected Velocity: m/s<br />
                   Average Fast-Velocity: m/s<br />
-                </div>
+              </span>
+{/*
+            <ClipboardButton option-text={this.getText}>Copy</ClipboardButton> */}
 
                 {/* <RaisedButton className='copyBtn' label='Copy' data-clipboard-action="copy" data-clipboard-target="#cardtext" fullWidth={true} labelColor='#fff' color='white' backgroundColor='#64DD17' /> */}
 

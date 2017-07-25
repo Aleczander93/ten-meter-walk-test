@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 
 export default class Patient extends React.Component {
@@ -23,14 +23,10 @@ export default class Patient extends React.Component {
 
     }
 
-submitInfo() {
-  this.props.updatePatientInfo(this.state.firstName, this.state.lastName, this.state.device, this.state.date);
-}
+  submitInfo() {
+    this.props.updatePatientInfo(this.state.firstName, this.state.lastName, this.state.device, this.state.date);
+  }
 
-
-   handleSubmit(event) {
-    event.preventDefault();
-   }
 
   handleDevice = (event, index, device) => {
     this.setState({device});
@@ -64,7 +60,6 @@ submitInfo() {
               value={this.firstName}
               onChange={this.handlefirstName}
             />
-
             <br />
 
             <TextField
@@ -95,7 +90,6 @@ submitInfo() {
 
               <DatePicker hintText="Date" value={this.state.date} onChange={this.handleDate} name='date' fullWidth={true} floatingLabelText="Date"/>
               <div className="submitContainer">
-                <RaisedButton label='Submit' onClick={this.submitInfo.bind(this)} type="submit" style={{width: '25%'}} labelColor='#fff' className='submitButton' color='white' backgroundColor='#64DD17' />
               </div>
             </div>
           </form>

@@ -535,7 +535,7 @@ export default class Test extends React.Component {
                  </h1>
 
                </TableRowColumn>
-               <TableRowColumn style={{textAlign: 'center', fontSize:'0px' }}>
+               <TableRowColumn style={{textAlign: 'center', fontSize:'0px', paddingLeft: '16px' }}>
 
                  {(this.state.secondsElapsed.test1 !== 0 &&
                    this.incrementer1 === this.state.lastClearedIncrementer1
@@ -578,7 +578,7 @@ export default class Test extends React.Component {
                  </h1>
 
                </TableRowColumn>
-               <TableRowColumn style={{textAlign: 'center', fontSize:'0px' }}>
+               <TableRowColumn style={{textAlign: 'center', fontSize:'0px', paddingLeft: '16px' }}>
 
                  {(this.state.secondsElapsed.test2 !== 0 &&
                    this.incrementer2 === this.state.lastClearedIncrementer2
@@ -621,7 +621,7 @@ export default class Test extends React.Component {
                  </h1>
 
                </TableRowColumn>
-               <TableRowColumn style={{textAlign: 'center', fontSize:'0px' }}>
+               <TableRowColumn style={{textAlign: 'center', fontSize:'0px', paddingLeft: '16px' }}>
 
                  {(this.state.secondsElapsed.test3 !== 0 &&
                    this.incrementer3 === this.state.lastClearedIncrementer3
@@ -674,7 +674,7 @@ export default class Test extends React.Component {
                       </h1>
 
                     </TableRowColumn>
-                    <TableRowColumn style={{textAlign: 'center', fontSize:'0px' }}>
+                    <TableRowColumn style={{textAlign: 'center', fontSize:'0px', paddingLeft: '16px' }}>
 
                       {(this.state.secondsElapsed.test4 !== 0 &&
                         this.incrementer4 === this.state.lastClearedIncrementer4
@@ -717,7 +717,7 @@ export default class Test extends React.Component {
                       </h1>
 
                     </TableRowColumn>
-                    <TableRowColumn style={{textAlign: 'center', fontSize:'0px' }}>
+                    <TableRowColumn style={{textAlign: 'center', fontSize:'0px', paddingLeft: '16px' }}>
 
                       {(this.state.secondsElapsed.test5 !== 0 &&
                         this.incrementer5 === this.state.lastClearedIncrementer5
@@ -760,7 +760,7 @@ export default class Test extends React.Component {
                       </h1>
 
                     </TableRowColumn>
-                    <TableRowColumn style={{textAlign: 'center', fontSize:'0px' }}>
+                    <TableRowColumn style={{textAlign: 'center', fontSize:'0px', paddingLeft: '16px' }}>
 
                       {(this.state.secondsElapsed.test6 !== 0 &&
                         this.incrementer6 === this.state.lastClearedIncrementer6

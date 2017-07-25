@@ -19,7 +19,8 @@ h3 {
 }
 
 /*.submitButton {
-  margin-left: ;
+  max-width: 78px;
+  width: 290px;
 }*/
 
 .menuButton{
@@ -29,8 +30,8 @@ h3 {
 
 }
 
-.reset-btn {
-  margin-right: 9%;
+.start-btn{
+  margin: 0px 5px;
 }
 
 .stopwatch-timer {
